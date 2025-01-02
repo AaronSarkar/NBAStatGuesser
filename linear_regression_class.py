@@ -1,8 +1,9 @@
+# This is a linear regression class I created to understand how the algorithm works
 import numpy as np
 import math
 class linear_regression:
     def __init__(self):
-        self.weights = None
+        self.weights = []
         self.bias = np.random.rand() - 0.5
     
     def __str__(self):
@@ -53,7 +54,8 @@ class linear_regression:
             x_train = x_train.values
             y_train = y_train.values
             y_train = y_train.reshape((-1,1))
-            self.weights = np.random.rand(len(x_train.shape[1]),1) - 0.5
+            length = np.size(x_train, axis = 1)
+            self.weights = np.random.rand(length,1) - 0.5
             m = len(x_train)
             
             for i in range(iterations):
